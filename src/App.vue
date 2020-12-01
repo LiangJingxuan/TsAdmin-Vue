@@ -1,28 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <a-config-provider :locale="zh_CN">
+      <router-view />
+    </a-config-provider>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { ConfigProvider } from "ant-design-vue";
+import zh_CN from "ant-design-vue/lib/locale-provider/zh_CN";
+import moment from "moment";
+import "moment/locale/zh-cn";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    AConfigProvider: ConfigProvider,
+  },
+  data() {
+    return {
+      zh_CN,
+    };
+  },
+};
 </script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url("assets/css/normalize.css");
 </style>
